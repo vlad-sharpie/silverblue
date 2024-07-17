@@ -11,7 +11,7 @@ RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-
 RUN flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 RUN rpm-ostree override remove ffmpeg-free google-noto-sans-cjk-vf-fonts default-fonts-cjk-sans libavcodec-free libavdevice-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free mesa-va-drivers && \
-    rpm-ostree install virt-manager sysprof alsa-firmware ffmpeg ffmpeg-libs ffmpegthumbnailer heif-pixbuf-loader intel-media-driver libva-intel-driver libva-utils mesa-va-drivers-freeworld.x86_64 net-tools nvme-cli zstd wireguard-tools adw-gtk3-theme gnome-epub-thumbnailer gnome-tweaks gvfs-nfs google-noto-sans-balinese-fonts google-noto-sans-cjk-fonts google-noto-sans-javanese-fonts google-noto-sans-sundanese-fonts && \
+    rpm-ostree install virt-manager sysprof rsms-inter-fonts alsa-firmware ffmpeg ffmpeg-libs ffmpegthumbnailer heif-pixbuf-loader intel-media-driver libheif-freeworld libheif-tools libva-intel-driver libva-utils mesa-va-drivers-freeworld.x86_64 net-tools nvme-cli zstd wireguard-tools adw-gtk3-theme gnome-epub-thumbnailer gnome-tweaks gvfs-nfs google-noto-sans-balinese-fonts google-noto-sans-cjk-fonts google-noto-sans-javanese-fonts google-noto-sans-sundanese-fonts && \
     ostree container commit
 
 # ADD playbook.yml .
