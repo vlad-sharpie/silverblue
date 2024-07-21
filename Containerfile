@@ -24,7 +24,7 @@ steam-devices \
 stow \
 alsa-firmware pipewire-codec-aptx \
 ffmpeg ffmpeg-libs ffmpegthumbnailer \
-flatpak-builder\
+flatpak-builder \
 intel-media-driver \
 libheif-freeworld libheif-tools heif-pixbuf-loader \
 libva-utils gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi \
