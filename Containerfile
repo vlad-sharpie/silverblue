@@ -16,10 +16,11 @@ RUN flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flath
 
 RUN rpm-ostree override remove \
 google-noto-sans-cjk-vf-fonts default-fonts-cjk-sans \
-libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free mesa-va-drivers mesa-vdpau-drivers ffmpeg-free && \
+libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free mesa-va-drivers ffmpeg-free && \
 # From https://rpmfusion.org/Howto/OSTree#Software_codecs
 rpm-ostree install \
 virt-manager \
+steam-devices \
 stow \
 alsa-firmware pipewire-codec-aptx \
 ffmpeg ffmpeg-libs ffmpegthumbnailer \
