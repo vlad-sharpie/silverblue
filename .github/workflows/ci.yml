@@ -9,8 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: vlad-sharpie/silverblue
-  IMAGE_NAME_NVIDIA: vlad-sharpie/silverblue-nvidia
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
@@ -24,40 +23,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # - name: Buildah Action
-      #   id: build-image
-      #   uses: redhat-actions/buildah-build@v2
-      #   with:
-      #     image: ${{ env.IMAGE_NAME }}
-      #     tags: latest ${{ github.sha }}
-      #     containerfiles: |
-      #       ./Containerfile
-
-      - name: Buildah Action NVIDIA
-        id: build-image-nvidia
+      - name: Buildah Action
+        id: build-image
         uses: redhat-actions/buildah-build@v2
         with:
-          image: ${{ env.IMAGE_NAME_NVIDIA }}
+          image: ${{ env.IMAGE_NAME }}
           tags: latest ${{ github.sha }}
           containerfiles: |
-            ./ContainerfileNvidia
+            ./Containerfile
 
-      # - name: Push To GitHub Registry
-      #   id: push-to-gh
-      #   uses: redhat-actions/push-to-registry@v2
-      #   with:
-      #     image: ${{ steps.build-image.outputs.image }}
-      #     tags: ${{ steps.build-image.outputs.tags }}
-      #     registry: ${{ env.REGISTRY }}
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Push To GitHub Registry NVIDIA
-        id: push-to-gh-nvidia
+      - name: Push To GitHub Registry
+        id: push-to-gh
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ${{ steps.build-image-nvidia.outputs.image }}
-          tags: ${{ steps.build-image-nvidia.outputs.tags }}
+          image: ${{ steps.build-image.outputs.image }}
+          tags: ${{ steps.build-image.outputs.tags }}
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
