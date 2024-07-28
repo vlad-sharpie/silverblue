@@ -8,10 +8,10 @@ RUN rm /etc/yum.repos.d/fedora-cisco-openh264.repo && \
 RUN rpm-ostree install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
     ostree container commit
 
-RUN rpm-ostree install kmod-nvidia xorg-x11-drv-nvidia && \
+RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia && \
     ostree container commit
 
-RUN rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1 --append=initcall_blacklist=simpledrm_platform_driver_init
+RUN rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1
 
 RUN flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
